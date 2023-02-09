@@ -1,0 +1,25 @@
+let para1 = document.getElementById("couverture-img");
+let para2 = document.getElementById("chapitre0-couverture");
+let para3 = document.getElementById("chapitre1-couverture");
+let para4 = document.getElementById("decoration1");
+let para5 = document.getElementById("chapitre2-couverture");
+let para6 = document.getElementById("chapitre3-couverture");
+let para7 = document.getElementById("chapitre4-couverture");
+para1.style.backgroundPositionY = "-900px";
+window.addEventListener("scroll", function () {
+  let offset = window.scrollY;
+  let temp = offset * 0.7 - 900 + "px";
+  para1.style.backgroundPositionY = temp;
+  let temp2 = offset * 0.7 + 600 + "px";
+  para2.style.backgroundPositionY = temp2;
+  let temp3 = offset * 0.7 + 800 + "px";
+  para3.style.backgroundPositionY = temp3;
+  let temp4 = offset * 0.7 + "px";
+  para4.style.backgroundPositionY = temp4;
+  let temp5 = offset * 0.7 + 300 + "px";
+  para5.style.backgroundPositionY = temp5;
+  let temp6 = offset * 0.7 + -400 + "px";
+  para6.style.backgroundPositionY = temp6;
+  let temp7 = offset * 0.7 + -500 + "px";
+  para7.style.backgroundPositionY = temp7;
+});
