@@ -16,6 +16,8 @@ body,
 html {
   margin: 0;
   padding: 0;
+  /* Scroll smooth */
+  scroll-behavior: smooth;
 }
 
 #couverture-img,
@@ -371,4 +373,22 @@ img {
     -webkit-filter: blur(0px);
     filter: blur(0px);
   }
+}
+.sommaire-container-chapitre {
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+/* make shadow whene over */
+.sommaire-container-chapitre:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
+  /* Make baground darker and make the div going a little upper */
+  transform: translateY(-5px);
+  /* mAKE BACKGROUND DARKER */
+  background-color: #01030f;
+  /* make border round */
+  border-radius: 20px;
+
+  /* Make the transition smooth */
+  transition: 0.5s;
 }
