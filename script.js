@@ -1,5 +1,5 @@
 let img = document.getElementById("title");
-let fontSize = 9;
+let fontSize = 9.3;
 let maxFontSize = window.innerWidth / 99;
 if (maxFontSize > 9) img.style.fontSize;
 
@@ -8,11 +8,15 @@ window.addEventListener("resize", function () {
   if (maxFontSize > 9) img.style.fontSize = maxFontSize + "em";
 });
 window.addEventListener("scroll", function () {
-  let offset = window.pageYOffset;
-  img.style.backgroundPositionY = "calc(50% + " + (offset * 0.5 + -90) + "px)";
-  let temp = fontSize + offset * 0.005;
-  if (temp > maxFontSize) temp = maxFontSize;
-  img.style.fontSize = temp + "em";
+  //if not on computer, do nothing
+  if (window.innerWidth < 1000) return;
+  else {
+    let offset = window.pageYOffset;
+    img.style.backgroundPositionY = "calc(50% + " + offset * 0.5 + "px)";
+    let temp = fontSize + offset * 0.005;
+    if (temp > maxFontSize) temp = maxFontSize;
+    img.style.fontSize = temp + "em";
+  }
 });
 
 function startAnimation(entries, observer) {
