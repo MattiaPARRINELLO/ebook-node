@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Hanken Grotesk";
-  src: url(../font/HankenGrotesk.ttf) format("truetype");
+  src: url(../statique/font/HankenGrotesk.ttf) format("truetype");
 }
 
 :root {

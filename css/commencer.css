@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Hanken Grotesk";
-  src: url(../font/HankenGrotesk.ttf) format("truetype");
+  src: url(../statique/font/HankenGrotesk.ttf) format("truetype");
 }
 
 :root {
@@ -29,7 +29,7 @@ html {
 }
 
 #couverture-img {
-  background-image: url(../elements/img/couverture.png);
+  background-image: url(../statique/img/commencer-couverture.png);
 }
 
 .couverture-container1 {
@@ -280,7 +280,7 @@ img {
 
 #chapitre0-couverture {
   height: 100vh;
-  background-image: url(../elements/img/chapitre00.png);
+  background-image: url(../statique/img/commencer-chapitre0.png);
 }
 
 #chapitre0-couverture,
@@ -301,7 +301,7 @@ img {
 #chapitre1-couverture {
   background-color: #d8a790;
   height: 100vh;
-  background-image: url(../elements/img/chapitre1.png);
+  background-image: url(../statique/img/commencer-chapitre1.png);
 }
 
 #chapitre2-couverture,
@@ -309,7 +309,7 @@ img {
 #chapitre4-couverture,
 #decoration1 {
   height: 75vh;
-  background-image: url(../elements/img/decoration1.png);
+  background-image: url(../statique/img/commencer-decoration.png);
 }
 
 #chapitre2-couverture,
@@ -317,16 +317,16 @@ img {
 #chapitre4-couverture {
   color: var(--color1);
   height: 100vh;
-  background-image: url(../elements/img/chapitre2.png);
+  background-image: url(../statique/img/commencer-chapitre2.png);
 }
 
 #chapitre3-couverture,
 #chapitre4-couverture {
-  background-image: url(../elements/img/chapitre3.png);
+  background-image: url(../statique/img/commencer-chapitre3.png);
 }
 
 #chapitre4-couverture {
-  background-image: url(../elements/img/chapitre4.png);
+  background-image: url(../statique/img/commencer-chapitre4.png);
 }
 
 .chapitre4-container1 {
