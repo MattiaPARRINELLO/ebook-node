@@ -20,3 +20,11 @@ for (let i = 0; i < 10; i++) {
     location.href = "#chapitre" + i + "-couverture";
   });
 }
+
+function calc() {
+  for (let i = 0; i < 30; i = i + 0.5) {
+    let temp = (i * 6) / 4.5;
+    console.log(i + "=" + temp);
+  }
+}
+calc();

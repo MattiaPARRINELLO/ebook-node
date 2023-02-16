@@ -51,7 +51,7 @@ html {
   padding-top: 20px;
   text-align: center;
   text-transform: uppercase;
-  background-image: url("img/home-screen.png");
+  background-image: url("../statique/img/home-screen.png");
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -100,7 +100,6 @@ html {
   color: #f4f6fc;
 }
 .retour-title-container {
-  width: 45%;
   height: auto;
   display: flex;
   padding: 50px;

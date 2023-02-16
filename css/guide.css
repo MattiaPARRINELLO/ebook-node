@@ -42,40 +42,36 @@ html {
   height: 100vh;
   display: flex;
   background-position: center;
+  flex-direction: column;
 }
 
 #couverture-img {
-  background-image: url(../elements/img/couverture.jpg);
+  background-image: url(../statique/img/guide-couverture.jpg);
 }
 
 .couverture-container1 {
-  height: 20vh;
   top: 0;
 }
 
 .couverture-container1,
 .couverture-container2,
 .couverture-container3 {
-  position: absolute;
   width: 100%;
-  margin: 0;
   display: flex;
   justify-content: center;
 }
 
 .couverture-container2 {
-  height: 30vh;
   top: 5vh;
 }
 
 .couverture-container3 {
-  height: 10vh;
-  bottom: 5vh;
+  margin-top: 20vh;
 }
 
 .couverture-h1-1 {
   font-family: --font2, sans-serif;
-  font-size: 2.5em;
+  font-size: 3.3vw;
   color: var(--color1);
   text-align: center;
   font-weight: 350;
@@ -94,14 +90,26 @@ html {
 
 .couverture-h1-2 {
   font-family: var(--font1), sans-serif;
-  font-size: 4.5em;
+  font-size: 5.3vw;
   bottom: 25vh;
 }
 
 .couverture-h1-3 {
   font-family: var(--font3), serif;
-  font-size: 1.5em;
+  font-size: 2vw;
   bottom: 0;
+}
+@media only screen and (max-width: 600px) {
+  #couverture-img,
+  .test {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .couverture-container3 {
+    margin-top: 30vh;
+  }
 }
 
 .sommaire,
@@ -126,7 +134,7 @@ html {
 
 .sommaire-title-h2 {
   font-family: var(--font1), sans-serif;
-  font-size: 3em;
+  font-size: 4vw;
   color: var(--color1);
   text-align: center;
   font-weight: 550;
@@ -162,18 +170,20 @@ html {
 
 .sommaire-chapitre {
   font-family: var(--font2), serif;
-  font-size: 1.5em;
+  font-size: 2vw;
   color: var(--color1);
   display: flex;
   width: 100%;
   justify-content: center;
+  text-align: center;
   font-weight: 350;
+  align-items: center;
   letter-spacing: 0.1em;
 }
 
 .sommaire-numero {
   font-family: var(--font2), sans-serif;
-  font-size: 3em;
+  font-size: 4vw;
   font-weight: 350;
 }
 
@@ -190,9 +200,11 @@ html {
 
 .sommaire-titre {
   font-family: var(--font2), sans-serif;
-  font-size: 1.5em;
+  font-size: 3.3vw;
   text-transform: uppercase;
   font-weight: 350;
+  align-items: center;
+  text-align: center;
 }
 
 .mot-chapitre,
@@ -203,18 +215,18 @@ html {
 
 .mot-chapitre {
   font-family: var(--font3), serif;
-  font-size: 2.5em;
+  font-size: 3.3vw;
   width: 100%;
 }
 
 .numero-chapitre,
 .titre-chapitre {
   font-family: var(--font2), sans-serif;
-  font-size: 4em;
+  font-size: 5.3vw;
 }
 
 .titre-chapitre {
-  font-size: 2.5em;
+  font-size: 3.3vw;
   text-transform: uppercase;
 }
 
@@ -242,7 +254,7 @@ html {
 
 .chapitre-titre {
   font-family: var(--font2), sans-serif;
-  font-size: 4em;
+  font-size: 5.3vw;
   color: var(--color1);
   width: 100%;
   font-weight: 400;
@@ -266,14 +278,14 @@ html {
 .texte {
   width: 85%;
   font-family: var(--font3), serif;
-  font-size: 2em;
+  font-size: 2.6vw;
   color: var(--color1);
   justify-content: center;
 }
 
 .title {
   font-family: var(--font2), sans-serif;
-  font-size: 4em;
+  font-size: 5.3vw;
   letter-spacing: 0.1em;
   display: flex;
   padding-top: 20px;
@@ -300,15 +312,17 @@ img {
 
 #chapitre0-couverture,
 #chapitre1-couverture {
-  height: 100vh;
-  padding-top: 7vh;
-  background-image: url(../elements/img/chapitre0.webp);
-  background-size: 100%;
+  /* Set height to image height */
+  background-image: url(../statique/img/guide-chapitre0.webp);
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 #chapitre1-couverture {
-  background-image: url(../elements/img/chapitre1.jpg);
+  background-image: url(../statique/img/guide-chapitre1.jpg);
 }
 
 #chapitre2-couverture,
@@ -321,14 +335,15 @@ img {
 #chapitre9-couverture {
   color: var(--color1);
   width: 100%;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 7vh;
-  background-image: url(../elements/img/chapitre2.jpg);
-  background-size: 100%;
+  background-image: url(../statique/img/guide-chapitre2.jpg);
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 #chapitre3-couverture,
@@ -338,7 +353,7 @@ img {
 #chapitre7-couverture,
 #chapitre8-couverture,
 #chapitre9-couverture {
-  background-image: url(../elements/img/chapitre3.jpg);
+  background-image: url(../statique/img/guide-chapitre3.jpg);
 }
 
 #chapitre4-couverture,
@@ -347,7 +362,7 @@ img {
 #chapitre7-couverture,
 #chapitre8-couverture,
 #chapitre9-couverture {
-  background-image: url(../elements/img/chapitre4.jpg);
+  background-image: url(../statique/img/guide-chapitre4.jpg);
 }
 
 #chapitre5-couverture,
@@ -355,29 +370,29 @@ img {
 #chapitre7-couverture,
 #chapitre8-couverture,
 #chapitre9-couverture {
-  background-image: url(../elements/img/chapitre5.jpg);
+  background-image: url(../statique/img/guide-chapitre5.jpg);
 }
 
 #chapitre6-couverture,
 #chapitre7-couverture,
 #chapitre8-couverture,
 #chapitre9-couverture {
-  background-image: url(../elements/img/chapitre6.jpg);
+  background-image: url(../statique/img/guide-chapitre6.jpg);
 }
 
 #chapitre7-couverture,
 #chapitre8-couverture,
 #chapitre9-couverture {
-  background-image: url(../elements/img/chapitre7.jpg);
+  background-image: url(../statique/img/guide-chapitre7.jpg);
 }
 
 #chapitre8-couverture,
 #chapitre9-couverture {
-  background-image: url(../elements/img/chapitre8.jpg);
+  background-image: url(../statique/img/guide-chapitre8.jpg);
 }
 
 #chapitre9-couverture {
-  background-image: url(../elements/img/chapitre9.jpg);
+  background-image: url(../statique/img/guide-chapitre9.jpg);
 }
 
 .title-appear {
@@ -385,6 +400,7 @@ img {
     both;
   animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
+
 @-webkit-keyframes tracking-in-expand {
   0% {
     letter-spacing: -0.5em;
