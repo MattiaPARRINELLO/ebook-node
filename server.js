@@ -26,6 +26,9 @@ app.get("/js/:file", (req, res) => {
   let file = req.params.file;
   res.sendFile(`/public/js/${file}`, { root: __dirname });
 });
+app.get("/test", (req, res) => {
+  res.send("test");
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
