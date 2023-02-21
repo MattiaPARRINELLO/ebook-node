@@ -1,3 +1,4 @@
 **/node_modules
-node_modules
 .env
+emails.json
+public/data/json/emails.json
