@@ -45,3 +45,68 @@ popUpElements.forEach((el) => {
     console.error("Unable to observe pop-up elements", e);
   }
 });
+
+function openPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+//On page loading
+window.addEventListener("load", function () {
+  //get url parameters
+  let url = new URL(window.location.href);
+  let params = new URLSearchParams(url.search);
+  //try to get the name and email parameters
+  try {
+    let nom = params.get("nom");
+    let email = params.get("email");
+    if (nom && email) {
+      sendEmail(nom, email);
+    }
+  } catch (e) {
+    console.error("Unable to get url parameters", e);
+  }
+});
+
+function sendEmail(nom, email) {
+  //add to local storage
+  localStorage.setItem("inscription", true);
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/api/sendEmail", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  //send to body
+  xhr.send(JSON.stringify({ nom: nom, email: email }));
+  xhr.onload = function () {
+    if (xhr.status == 200) {
+      console.log("Email registered");
+    } else if (xhr.status == 400) {
+      console.error("Email already exists");
+    } else {
+      console.error("Unable to send email");
+    }
+  };
+}
+
+window.addEventListener("load", function () {
+  let date = new Date();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let temp = month + "/" + year;
+  console.log(temp);
+  //si c'est la première fois que l'utilisateur visite le site ce mois-ci
+  if (!localStorage.getItem(`${temp}`)) {
+    if (!localStorage.getItem("inscription")) {
+      //on affiche la popup
+      setTimeout(openPopup, 5000);
+      //on met visited à true
+      localStorage.setItem(`${temp}`, true);
+    }
+  }
+});
+
+function goTo() {
+  //go to the section ebooks of the page
+  document.getElementById("ebooks").scrollIntoView();
+}
