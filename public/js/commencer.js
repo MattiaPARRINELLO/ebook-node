@@ -24,8 +24,8 @@ window.onload = function () {
   setTimeout(() => {
     document.querySelector(".popup").style.display = "block";
     document.querySelector("couverture-container3").style.display = "none";
-    // }, 300000);
-  }, 30);
+  }, 300000);
+  // }, 30);
 };
 
 // Ferme la popup lorsque l'utilisateur clique sur le bouton de fermeture
