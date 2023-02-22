@@ -41,12 +41,14 @@
 .close:hover {
   color: #000;
 }
-popup-h3 {
+.popup-h3 {
+  font-family: "Hanken Grotesk";
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 10px;
 }
-popup-p {
+.popup-p {
+  font-family: "Hanken Grotes";
   font-size: 16px;
   color: #888;
   margin-bottom: 30px;
@@ -67,8 +69,9 @@ popup-p {
   color: #ffc107;
 }
 .submit {
+  font-family: "Hanken Grotesk";
   padding: 10px 30px;
-  background-color: #4caf50;
+  background-color: var(--color3);
   color: white;
   border: none;
   border-radius: 5px;
@@ -76,7 +79,7 @@ popup-p {
   transition: all 0.2s;
 }
 .submit:hover {
-  background-color: #3e8e41;
+  background-color: var(--color2);
 }
 /* make shadow whene over */
 .sommaire-container-chapitre:hover {
@@ -496,4 +499,53 @@ img {
     -webkit-filter: blur(0px);
     filter: blur(0px);
   }
+}
+
+/* Make button style */
+.button {
+  background-color: #b1b2b7;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
+}
+.button:hover {
+  background-color: #01030f;
+  transition: 1s;
+  color: white;
+  translate: 0.5s;
+}
+.home {
+  background-color: #01030f;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
+}
+.home:hover {
+  background-color: #b1b2b7;
+  transition: 1s;
+  color: black;
+  translate: 0.5s;
+}
+.btn {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 50px;
 }

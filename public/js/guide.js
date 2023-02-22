@@ -37,6 +37,10 @@ window.onload = function () {
   }, 300000);
   // }, 30);
 };
+function evalPopup() {
+  document.querySelector(".popup").style.display = "block";
+  document.querySelector("couverture-container3").style.display = "none";
+}
 
 // Ferme la popup lorsque l'utilisateur clique sur le bouton de fermeture
 document.querySelector(".close").addEventListener("click", function () {
