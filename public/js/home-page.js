@@ -108,5 +108,7 @@ window.addEventListener("load", function () {
 
 function goTo() {
   //go to the section ebooks of the page
-  document.getElementById("ebooks").scrollIntoView();
+  document
+    .getElementById("ebook")
+    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 }
