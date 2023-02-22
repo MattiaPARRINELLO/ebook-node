@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Popup d'évaluation</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Hanken+Grotesk&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-ZGxczbkULJ+DsKjE1Xb70c54B/RPz/twofTAFV6jK0YUkV1iFF4xE4u0jy9Q2/BzV7aD6wEeeFZlDC6T/YY6Vw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .popup {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f9fafb;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 30px;
+        display: none;
+      }
+      .popup-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 28px;
+        color: #bbb;
+        cursor: pointer;
+      }
+      .close:hover {
+        color: #000;
+      }
+      h3 {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 16px;
+        color: #888;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .rating {
+        font-size: 48px;
+        margin-bottom: 30px;
+      }
+      .rating .star {
+        cursor: pointer;
+        color: #ccc;
+        margin-right: 10px;
+        transition: all 0.2s;
+      }
+      .rating .star:hover,
+      .rating .star.active {
+        color: #ffc107;
+      }
+      .submit {
+        padding: 10px 30px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .submit:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="popup">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <h3>Donnez votre avis</h3>
+        <p>Que pensez-vous de notre site ?</p>
+        <div class="rating">
+          <span class="star" data-rating="1">&#9733;</span>
+          <span class="star" data-rating="2">&#9733;</span>
+          <span class="star" data-rating="3">&#9733;</span>
+          <span class="star" data-rating="4">&#9733;</span>
+          <span class="star" data-rating="5">&#9733;</span>
+        </div>
+        <button class="submit">Envoyer</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // Affiche la popup lorsque la page est chargée
+    window.onload = function () {
+      document.querySelector(".popup").style.display = "block";
+    };
+
+    // Ferme la popup lorsque l'utilisateur clique sur le bouton de fermeture
+    document.querySelector(".close").addEventListener("click", function () {
+      document.querySelector(".popup").style.display = "none";
+    });
+
+    // Gère la sélection de l'évaluation
+    const stars = document.querySelectorAll(".star");
+    let selectedRating = 0;
+
+    stars.forEach(function (star) {
+      // Pour chaque étoile
+      star.addEventListener("click", function () {
+        // Lorsqu'on clique dessus
+        selectedRating = this.getAttribute("data-rating"); // Récupère la valeur de l'évaluation
+        stars.forEach(function (s) {
+          // Pour chaque étoile
+          s.classList.remove("active"); // Supprime la classe "active"
+        });
+        this.classList.add("active"); // Ajoute la classe "active" à l'étoile sélectionnée
+        for (let i = 1; i <= selectedRating; i++) {
+          // Pour chaque étoile
+          document
+            .querySelector(".star[data-rating='" + i + "']")
+            .classList.add("active"); // Ajoute la classe "active"
+        }
+      });
+      star.addEventListener("mouseenter", function () {
+        // Lorsqu'on clique dessus
+        selectedRating = this.getAttribute("data-rating"); // Récupère la valeur de l'évaluation
+        stars.forEach(function (s) {
+          // Pour chaque étoile
+          s.classList.remove("active"); // Supprime la classe "active"
+        });
+        this.classList.add("active"); // Ajoute la classe "active" à l'étoile sélectionnée
+        for (let i = 1; i <= selectedRating; i++) {
+          // Pour chaque étoile
+          document
+            .querySelector(".star[data-rating='" + i + "']")
+            .classList.add("active"); // Ajoute la classe "active"
+        }
+      });
+    });
+
+    // Envoie l'évaluation lorsqu'on clique sur le bouton d'envoi
+    document.querySelector(".submit").addEventListener("click", function () {
+      // Vérifie si une évaluation a été sélectionnée
+      if (selectedRating > 0) {
+        alert(
+          "Merci pour votre évaluation de " + selectedRating + " étoiles !"
+        );
+        document.querySelector(".popup").style.display = "none";
+      } else {
+        alert("Veuillez sélectionner une évaluation avant d'envoyer.");
+      }
+    });
+  </script>
+</html>

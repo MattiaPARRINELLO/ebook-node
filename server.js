@@ -169,6 +169,98 @@ app.get("/desinscription/:email", (req, res) => {
   });
 });
 
+app.post("/api/rating", (req, res) => {
+  let body = "";
+  req.on("data", (chunk) => {
+    body += chunk.toString();
+    console.log(body);
+  });
+  req.on("end", () => {
+    let datas = JSON.parse(body);
+    let rating = datas.rating;
+    let commentaire = datas.commentaire;
+    let contact = datas.contact;
+    let ebook = datas.ebook;
+    //open rating.json
+    fs.readFile("public/data/json/rating.json", (err, data) => {
+      if (err) {
+        console.error("Unable to read rating.json", err);
+        res.status(500).send("Unable to read rating.json");
+      }
+      let ratingData = JSON.parse(data);
+      let newRating = {
+        rating: rating,
+        commentaire: commentaire,
+        contact: contact,
+        ebook: ebook,
+      };
+      ratingData.push(newRating);
+      fs.writeFile(
+        "public/data/json/rating.json",
+        JSON.stringify(ratingData),
+        (err) => {
+          if (err) {
+            console.error("Unable to write rating.json", err);
+            res.status(500).send("Unable to write rating.json");
+          } else {
+            res.status(200).send("Rating sent");
+          }
+        }
+      );
+    });
+  });
+});
+app.get("/api/rating/:urlEbook/:pas", (req, res) => {
+  //add password
+  let passwordPage = req.params.pas;
+  let urlEbook = req.params.urlEbook;
+  if (urlEbook === "commencer" || urlEbook === "guide") {
+    if (passwordPage === password) {
+      fs.readFile("public/data/json/rating.json", (err, data) => {
+        if (err) {
+          console.error("Unable to read rating.json", err);
+          res.status(500).send("Unable to read rating.json");
+        } else {
+          //make a html page with the rating data
+          let ratingData = JSON.parse(data);
+          let html = `<h1>Rating du ebook ${urlEbook}</h1>`;
+          for (let i = 0; i < ratingData.length; i++) {
+            if (ratingData[i].ebook === urlEbook) {
+              html += `<h2>Rating: ${ratingData[i].rating}</h2>
+            <p>Commentaire: ${ratingData[i].commentaire}</p>
+            <p>Contact: ${ratingData[i].contact}</p>
+            <hr>`;
+            }
+          }
+          //add style to the html page
+          html += `<style>
+          body {
+            background-color: #f5f5f5;
+            font-family: sans-serif;
+          }
+          h1 {
+            text-align: center;
+            color: #333;
+          }
+          h2 {
+            color: #333;
+          }
+          p {
+            color: #333;
+          }
+          hr {
+            border: 1px solid #333;
+          }
+          </style>`;
+          res.send(html);
+        }
+      });
+    } else {
+      res.send("Mot de passe incorrect");
+    }
+  }
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
