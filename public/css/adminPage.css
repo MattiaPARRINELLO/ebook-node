@@ -1,0 +1,74 @@
+/* Appliquer une police de caractères personnalisée à l'ensemble de la page */
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Centrer le titre */
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 700;
+  font-size: 48px;
+  text-transform: uppercase;
+}
+
+/* Ajouter une marge en haut et en bas aux boutons */
+button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style pour l'étiquette du mot de passe */
+label[for="password"] {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Style pour l'entrée de mot de passe */
+input[type="password"] {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Style pour les boutons */
+button {
+  padding: 15px 30px;
+  background-color: #0077cc;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Style pour les boutons de notation */
+#ratingCommencer,
+#ratingGuide {
+  background-color: #0099ff;
+}
+
+/* Style pour le bouton de newsletter */
+#newsletter {
+  background-color: #ff6600;
+}
+
+/* Style pour les boutons au survol */
+button:hover {
+  background-color: #005299;
+}
