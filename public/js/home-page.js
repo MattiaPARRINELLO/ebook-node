@@ -68,6 +68,13 @@ window.addEventListener("load", function () {
   } catch (e) {
     console.error("Unable to get url parameters", e);
   }
+
+  let author = document.getElementById("author");
+  let title = document.getElementById("title");
+  let homebtn = document.getElementById("home-btn");
+  author.classList.add("authorappear");
+  title.classList.add("titleappear");
+  homebtn.classList.add("buttonappear");
 });
 
 function sendEmail(nom, email) {

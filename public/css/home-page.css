@@ -26,6 +26,8 @@ html {
   color: white;
   font-weight: 400;
   text-transform: uppercase;
+}
+.authorappear {
   -webkit-animation: text-focus-in 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53)
     both;
   animation: text-focus-in 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
@@ -61,6 +63,8 @@ html {
   background-position-y: center;
   line-height: 0.9em;
   /* text-shadow: 1px 2px 5px rgb(0, 0, 0, 0.5); */
+}
+.titleappear {
   -webkit-animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.61, 0.355, 1)
     both;
   animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
@@ -83,6 +87,8 @@ html {
   margin-top: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   cursor: pointer;
+}
+.buttonappear {
   -webkit-animation: text-focus-in 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53)
     both;
   animation: text-focus-in 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
