@@ -237,7 +237,7 @@ app.get("/api/rating/:urlEbook/:pas", (req, res) => {
             }
           }
           html += `<h2>Rating moyen: ${ratingAverage / ratingNumber}</h2>`;
-          html += `Réinitialiser les données: <a href="https://calisthenics.sobot.fr/api/reset/rating/${urlEbook}/${password}>Réinitialiser</a>`;
+          html += `<p>Réinitialiser les données: <a href="https://calisthenics.sobot.fr/api/reset/rating/${urlEbook}/${password}>Réinitialiser</a></p>`;
           //add style to the html page
           html += `<style>
           body {
