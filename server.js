@@ -223,6 +223,8 @@ app.get("/api/rating/:urlEbook/:pas", (req, res) => {
         } else {
           //make a html page with the rating data
           let ratingData = JSON.parse(data);
+          let ratingAverage = 0;
+          let ratingNumber = 0;
           let html = `<h1>Rating du ebook ${urlEbook}</h1>`;
           for (let i = 0; i < ratingData.length; i++) {
             if (ratingData[i].ebook === urlEbook) {
@@ -230,8 +232,11 @@ app.get("/api/rating/:urlEbook/:pas", (req, res) => {
             <p>Commentaire: ${ratingData[i].commentaire}</p>
             <p>Contact: ${ratingData[i].contact}</p>
             <hr>`;
+              ratingAverage += ratingData[i].rating;
+              ratingNumber += 1;
             }
           }
+          html += `<h2>Rating moyen: ${ratingAverage / ratingNumber}</h2>`;
           html += `Réinitialiser les données: <a href="https://calisthenics.sobot.fr/api/reset/rating/${urlEbook}/${password}>Réinitialiser</a>`;
           //add style to the html page
           html += `<style>
