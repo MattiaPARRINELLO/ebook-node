@@ -232,6 +232,7 @@ app.get("/api/rating/:urlEbook/:pas", (req, res) => {
             <hr>`;
             }
           }
+          html += `Réinitialiser les données: <a href="https://calisthenics.sobot.fr/api/reset/rating/${urlEbook}/${password}>Réinitialiser</a>`;
           //add style to the html page
           html += `<style>
           body {
@@ -255,6 +256,29 @@ app.get("/api/rating/:urlEbook/:pas", (req, res) => {
           res.send(html);
         }
       });
+    } else {
+      res.send("Mot de passe incorrect");
+    }
+  }
+});
+
+app.get("/api/reset/rating/:urlEbook/:pas", (req, res) => {
+  let passwordPage = req.params.pas;
+  let urlEbook = req.params.urlEbook;
+  if (urlEbook === "commencer" || urlEbook === "guide") {
+    if (passwordPage === password) {
+      fs.writeFile(
+        "public/data/json/rating.json",
+        JSON.stringify([]),
+        (err) => {
+          if (err) {
+            console.error("Unable to write rating.json", err);
+            res.status(500).send("Unable to write rating.json");
+          } else {
+            res.status(200).send("Rating reset");
+          }
+        }
+      );
     } else {
       res.send("Mot de passe incorrect");
     }
