@@ -119,3 +119,7 @@ function goTo() {
     .getElementById("ebook")
     .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 }
+
+document.getElementById("discord").addEventListener("click", function () {
+  window.open("https://discord.gg/MD9e5hjKfd", "_blank");
+});

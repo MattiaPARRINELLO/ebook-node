@@ -93,6 +93,24 @@ html {
     both;
   animation: text-focus-in 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
+.discordBTN {
+  width: 50px;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+.discord {
+  fill: white;
+  pointer-events: bounding-box;
+  cursor: pointer;
+}
+.discordBTN:hover .discord {
+  fill: #8bcdff;
+  outline: none;
+  transition: 0.7s;
+}
 
 .button:hover {
   background-color: #8bcdff;
