@@ -148,7 +148,9 @@ app.get("/api/newsletter/nb", (req, res) => {
       res.status(500).send("Unable to read emails.json");
     } else {
       let emails = JSON.parse(data);
-      res.send(emails.length.toString());
+      //make it readable in a XHR request
+      res.setHeader("Content-Type", "application/json");
+      res.send(JSON.stringify(emails.length));
     }
   });
 });
