@@ -291,7 +291,7 @@ app.get("/api/rating/:urlEbook/:pas", (req, res) => {
             <p>Commentaire: ${ratingData[i].commentaire}</p>
             <p>Contact: ${ratingData[i].contact}</p>
             <hr>`;
-              ratingAverage += ratingData[i].rating;
+              ratingAverage += Number(ratingData[i].rating);
               ratingNumber += 1;
             }
           }
