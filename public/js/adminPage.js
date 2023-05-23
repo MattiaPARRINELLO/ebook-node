@@ -12,7 +12,10 @@ window.onload = function () {
         location.href = "/api/rating/guide/" + password;
       }
       if (element.id === "newsletter") {
-        location.href = "newsletter" + password;
+        location.href = "/newsletter/interface/" + password;
+      }
+      if (element.id === "listNews") {
+        location.href = "/newsletter/list/" + password;
       }
     });
   });

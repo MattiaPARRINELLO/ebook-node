@@ -4,11 +4,23 @@
     <meta charset="UTF-8" />
     <title>Formulaire de contact</title>
     <script defer>
+      let nbNewsletter = 0;
+      //request to the server to get the number of newsletter
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "/api/newsletter/nb");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send();
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          nbNewsletter = JSON.parse(xhr.response).nbNewsletter;
+          console.log("nbNewsletter : " + nbNewsletter);
+        } else {
+          console.error("Unable to get nbNewsletter");
+        }
+      };
       function submit() {
         var sujet = document.getElementById("sujet").value;
         var message = document.getElementById("texte").value;
-        console.log(sujet);
-        console.log(message);
         // send this to the server
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/api/sendMail");

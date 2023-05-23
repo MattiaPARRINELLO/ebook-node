@@ -13,6 +13,16 @@ app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
 
+app.get("/admin/:pas", (req, res) => {
+  //add password
+  let passwordPage = req.params.pas;
+  if (passwordPage === password) {
+    res.sendFile("public/adminPage/index.html", { root: __dirname });
+  } else {
+    res.send("Mot de passe incorrect");
+  }
+});
+
 app.get("/commencer", (req, res) => {
   res.sendFile("commencer.html", { root: __dirname });
 });
@@ -87,7 +97,7 @@ app.post("/api/sendEmail", (req, res) => {
   });
 });
 
-app.get("/newsletter/:pas", (req, res) => {
+app.get("/newsletter/interface/:pas", (req, res) => {
   //add password
   let passwordPage = req.params.pas;
   if (passwordPage === password) {
@@ -96,6 +106,53 @@ app.get("/newsletter/:pas", (req, res) => {
     res.send("Mot de passe incorrect");
   }
 });
+app.get("/newsletter/list/:pas", (req, res) => {
+  //add password
+  let passwordPage = req.params.pas;
+  if (passwordPage === password) {
+    fs.readFile("public/data/json/emails.json", (err, data) => {
+      if (err) {
+        console.error("Unable to read emails.json", err);
+        res.status(500).send("Unable to read emails.json");
+      } else {
+        let emails = JSON.parse(data);
+        let html = `<h1>Liste des emails</h1>`;
+        for (let i = 0; i < emails.length; i++) {
+          html += `<p>${emails[i].email}</p>`;
+        }
+        //add style to the html page
+        html += `<style>
+        body {
+          background-color: #f5f5f5;
+          font-family: sans-serif;
+        }
+        h1 {
+          text-align: center;
+          color: #333;
+        }
+        p {
+          color: #333;
+        }
+        </style>`;
+        res.send(html);
+      }
+    });
+  } else {
+    res.send("Mot de passe incorrect");
+  }
+});
+app.get("/api/newsletter/nb", (req, res) => {
+  fs.readFile("public/data/json/emails.json", (err, data) => {
+    if (err) {
+      console.error("Unable to read emails.json", err);
+      res.status(500).send("Unable to read emails.json");
+    } else {
+      let emails = JSON.parse(data);
+      res.send(emails.length.toString());
+    }
+  });
+});
+
 app.post("/api/sendMail", (req, res) => {
   let body = "";
   req.on("data", (chunk) => {
@@ -236,7 +293,8 @@ app.get("/api/rating/:urlEbook/:pas", (req, res) => {
               ratingNumber += 1;
             }
           }
-          html += `<h2>Rating moyen: ${ratingAverage / ratingNumber}</h2>`;
+          let avgrating = ratingAverage / ratingNumber;
+          html += `<h2>Rating moyen: ${avgrating}</h2>`;
           html += `<p>Réinitialiser les données: <a href="https://calisthenics.sobot.fr/api/reset/rating/${urlEbook}/${password}>Réinitialiser</a></p>`;
           //add style to the html page
           html += `<style>
