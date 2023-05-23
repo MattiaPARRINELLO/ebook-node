@@ -291,13 +291,13 @@ app.get("/api/rating/:urlEbook/:pas", (req, res) => {
             <p>Commentaire: ${ratingData[i].commentaire}</p>
             <p>Contact: ${ratingData[i].contact}</p>
             <hr>`;
-              ratingAverage += ratingData[i].rating;
+              ratingAverage += Number(ratingData[i].rating);
               ratingNumber += 1;
             }
           }
           let avgrating = ratingAverage / ratingNumber;
           html += `<h2>Rating moyen: ${avgrating}</h2>`;
-          html += `<p>Réinitialiser les données: <a href="https://calisthenics.sobot.fr/api/reset/rating/${urlEbook}/${password}>Réinitialiser</a></p>`;
+          html += `<p>Réinitialiser les données:</p> <a href="https://calisthenics.sobot.fr/api/reset/rating/${urlEbook}/${password}">Réinitialiser</a>`;
           //add style to the html page
           html += `<style>
           body {
