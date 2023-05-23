@@ -2,7 +2,7 @@ window.onload = function () {
   //get all buttons
   let buttons = document.querySelectorAll("button");
   buttons.forEach((element) => {
-    element.addEvelistener("click", (e) => {
+    element.addEventListener("click", (e) => {
       let password = document.getElementById("password").value;
       //if id of the element
       if (element.id === "ratingCommencer") {
