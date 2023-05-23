@@ -1,6 +1,6 @@
 window.onload = function () {
-  //get every element with the class "button"
-  let buttons = document.getElementsByClassName("button");
+  //get all buttons
+  let buttons = document.querySelectorAll("button");
   buttons.forEach((element) => {
     element.addEvelistener("click", (e) => {
       let password = document.getElementById("password").value;
