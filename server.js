@@ -8,9 +8,25 @@ const password = process.env.PASSWORD;
 const port = 3000;
 //public folder
 app.use(express.static("public"));
+const checkBeta = () => {
+  let today = new Date();
+  let date = today.getDate();
+  let month = today.getMonth() + 1;
+  let year = today.getFullYear();
+  console.log(month, year);
+  if (month >= 6 || year > 2023) {
+    return true;
+  } else if (month < 6) {
+    return false;
+  }
+};
 
 app.get("/", (req, res) => {
-  res.sendFile("index.html");
+  if (checkBeta()) {
+    res.sendFile("public/home.html", { root: __dirname });
+  } else {
+    res.status(405).sendFile("public/405/index.html", { root: __dirname });
+  }
 });
 
 app.get("/admin/:pas", (req, res) => {
@@ -24,11 +40,19 @@ app.get("/admin/:pas", (req, res) => {
 });
 
 app.get("/commencer", (req, res) => {
-  res.sendFile("commencer.html", { root: __dirname });
+  if (checkBeta()) {
+    res.sendFile("commencer.html", { root: __dirname });
+  } else {
+    rres.status(405).sendFile("public/405/index.html", { root: __dirname });
+  }
 });
 
 app.get("/guide", (req, res) => {
-  res.sendFile("guide.html", { root: __dirname });
+  if (checkBeta()) {
+    res.sendFile("guide.html", { root: __dirname });
+  } else {
+    res.status(405).sendFile("public/405/index.html", { root: __dirname });
+  }
 });
 
 app.get("/statique/:dos/:file", (req, res) => {
@@ -48,7 +72,7 @@ app.get("/js/:file", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  res.send("test");
+  res.send("5/30");
 });
 
 app.post("/api/sendEmail", (req, res) => {
