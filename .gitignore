@@ -2,3 +2,5 @@
 .env
 emails.json
 public/data/json/emails.json
+rating.json
+public/data/json/rating.json
